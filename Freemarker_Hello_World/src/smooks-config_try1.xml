@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd"
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.3.xsd"
+                      xmlns:ftl="http://www.milyn.org/xsd/smooks/freemarker-1.1.xsd">
+
+   
+  
+    <ftl:freemarker applyOnElement="order">
+        <ftl:template><!--
+        
+        <#attempt>
+ 
+
+<salesorder>
+    <details>
+     
+        
+       
+        <productId>${order-items.orderItem[0].product[0]}</productId>
+        <quantity>${order-items.orderItem[0].quantity[0]}</quantity>
+        <price>${order-items.orderItem[0].price[0]}</price>
+    </details>
+    </details>
+   
+   
+</salesorder>
+
+<#recover>
+ Ups! recover block hit with error 
+</#attempt>
+
+
+
+--></ftl:template>
+    </ftl:freemarker>
+
+    
+
+</smooks-resource-list>

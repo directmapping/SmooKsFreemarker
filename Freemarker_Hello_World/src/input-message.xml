@@ -1,0 +1,28 @@
+<orders id='332'>
+	<test>1</test>
+    <header>
+    <test>1</test>
+        <customer number="123">Joe</customer>
+    </header>
+    <order-items>
+    <test>1</test>
+        <order-item id='1'>
+            <product>1</product>
+            <quantity>2</quantity>
+            <price>8.80</price>
+            <test> 
+            	<t>1</t>
+             	<t>2</t>
+            </test>
+        </order-item>
+    <order-item id='2'>
+            <product>1</product>
+            <quantity>2</quantity>
+            <price>8.80</price>
+            <test>
+            	<t>1</t>
+             	<t>2</t>
+            </test>
+        </order-item>
+    </order-items>
+</orders>
