@@ -59,8 +59,8 @@
     <ftl:template><!--        <item>
         <id>${.vars["order-item"].@id}</id>
         <productId>${.vars["order-item"].product}</productId>
-        <quantity>${.vars["order-item"].quantity}</quantity>
-        <price>${.vars["order-item"].price}</price>
+        <quantity>${.vars["order-item"].quantity[0]!""}</quantity>
+        <price>${.vars["order-item"].price[0]!""}</price>
     </item>
     --></ftl:template>
 </ftl:freemarker>

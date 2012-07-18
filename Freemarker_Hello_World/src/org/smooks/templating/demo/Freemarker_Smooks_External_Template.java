@@ -1,4 +1,4 @@
-package org.smooks.freemarker;
+package org.smooks.templating.demo;
 
 import org.milyn.Smooks;
 import org.milyn.SmooksException;
@@ -21,13 +21,11 @@ public class Freemarker_Smooks_External_Template {
 	 public static void main(String[] args) throws IOException, SAXException, SmooksException, InterruptedException
 	    {
 	
-	           Smooks smooks = new Smooks("smooks-config.xml");
+	           Smooks smooks = new Smooks("smooks_config/smooks-config.xml");
 	        try {
-	            smooks.filterSource(new StreamSource(new FileInputStream("src/input-message.xml")), new StreamResult(System.out));
+	            smooks.filterSource(new StreamSource(new FileInputStream("input/input-message.xml")), new StreamResult(System.out));
 		        } finally {
 	            smooks.close();
 	        }	        
 	    }
-
-	  
 }

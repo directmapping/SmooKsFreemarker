@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="template"/>
+	<classpathentry kind="src" path="output"/>
+	<classpathentry kind="src" path="input"/>
+	<classpathentry kind="src" path="smooks_config"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/freemarker.jar"/>
 	<classpathentry kind="lib" path="lib/milyn-smooks-all-1.5.1.jar"/>
@@ -20,5 +24,9 @@
 	<classpathentry kind="lib" path="lib/xom-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/xpp3_min-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="lib/xstream-1.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.common_2.8.0.v20120606-0717.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.8.0.v20120606-0717.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.xsd_2.8.0.v20120608-0554.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

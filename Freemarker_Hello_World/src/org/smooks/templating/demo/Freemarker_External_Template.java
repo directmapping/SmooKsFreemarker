@@ -1,4 +1,4 @@
-package org.smooks.freemarker;
+package org.smooks.templating.demo;
  
 import java.io.File;
 import java.io.FileWriter;
@@ -26,10 +26,12 @@ public class Freemarker_External_Template {
         Configuration cfg = new Configuration();
         try {
             //Load template from source folder
-            Template     	template 	= cfg.getTemplate("src/freemarker_template.ftl");
+            //Template     	template 	= cfg.getTemplate("src/template/freemarker_template.ftl");
+            Template     	template 	= cfg.getTemplate("template/freemarker_template_generic.ftl");
+            
             Map 			root 		= new HashMap();
             try {
-				root.put("doc", freemarker.ext.dom.NodeModel.parse(new File("src/input-message.xml")));
+				root.put("doc", freemarker.ext.dom.NodeModel.parse(new File("input/input-message_test.xml")));
 			} catch (SAXException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -48,7 +50,7 @@ public class Freemarker_External_Template {
           
             	
             // File output
-            Writer file = new FileWriter (new File("src/test.xml"));
+            Writer file = new FileWriter (new File("output/test.xml"));
             template.process(root, file);
             file.flush();
             file.close();

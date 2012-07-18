@@ -1,3 +1,0 @@
-    <#list order.order-times.order-item as ch>
-  <h2>${ch.product}</h2>
-</#list>   

@@ -1,4 +1,4 @@
-package org.smooks.freemarker;
+package org.smooks.templating.demo;
 
 	/*
 	Milyn - Copyright (C) 2006 - 2010
@@ -33,24 +33,16 @@ import java.io.InputStreamReader;
  * @author <a href="mailto:tom.fennelly@jboss.com">tom.fennelly@jboss.com</a>
  *
  */
-public class Freemarker_Smooks_Try1
+public class Freemarker_Smooks_Huge_Transform
 {
     public static void main(String[] args) throws IOException, SAXException, SmooksException, InterruptedException
     {
-      
-        Smooks smooks = new Smooks("smooks-config_try1.xml");
-        
-        
-        StreamSource test = new StreamSource(new FileInputStream("src/input-message_org.xml"));
-        
+        pause("Press 'enter' to process the contents of the 'input-message.xml' file.  The result wil be output to the console...");
+
+        Smooks smooks = new Smooks("smooks_config/smooks-config_org.xml");
         try {
-            smooks.filterSource(test, new StreamResult(System.out));
-        }
-        catch(Exception e)
-        {
-        	  System.out.println("Problem occured \n");
-        }
-        finally {
+            smooks.filterSource(new StreamSource(new FileInputStream("input/input-message_test.xml")), new StreamResult(System.out));
+        } finally {
             smooks.close();
         }
 

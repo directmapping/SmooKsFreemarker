@@ -9,14 +9,9 @@
         <ftl:template><!--
         
         <#attempt>
- 
-
-<salesorder>
+ <salesorder>
     <details>
-     
-        
-       
-        <productId>${order-items.orderItem[0].product[0]}</productId>
+         <productId>${order-items.orderItem[0].product[0]}</productId>
         <quantity>${order-items.orderItem[0].quantity[0]}</quantity>
         <price>${order-items.orderItem[0].price[0]}</price>
     </details>

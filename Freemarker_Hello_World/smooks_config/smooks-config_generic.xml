@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd"
+                      xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.3.xsd"
+                      xmlns:ftl="http://www.milyn.org/xsd/smooks/freemarker-1.1.xsd">
+
+ <ftl:freemarker applyOnElement="#document">
+   <ftl:template>
+   
+   <![CDATA[<?xml vestion="1.0"encoding="UTF-8"?>
+   <salesorder>
+    <details>
+        <orderid>${.vars["order"]["@id"][0]!""}</orderid>
+        <customer>
+            <id>${.vars["order"]["header/customer/@number"][0]!""}</id>
+            <name>${.vars["order"]["header/customer"][0]!""}</name>
+        </customer>
+    </details>
+    
+    <#list .vars["order"] as c>
+- ${c?node_name}
+</#list>  
+
+<#list .vars["order"]?children as c>
+- ${c?node_type} <#if c?node_type = 'element'>${c?node_name}</#if>
+</#list> 
+
+<#list .vars["order"]["order-items"]  as order_items>
+   <itemList>
+   		<#list .vars["order_items"]["order-item"]  as order_item>
+   			<item>
+   				<id>${order_item.@id[0]!""}</id>
+   				<productid>${order_item.product[0]!""}</productid>
+   				<quantity>${order_item.quantity[0]!""}</quantity>
+   				<price>${order_item.price[0]!""}</price>
+	   		</item>
+   		</#list>
+   	</itemList>
+</#list>   
+
+
+<#list .vars["order"]["order-items"]  as order_items>
+   <itemList>
+   		<#list .vars["order_items"]["order-item"]  as order_item>
+   			<item>
+   				<id>${order_item.@id[0]!""}</id>
+   				<productid>${order_item.product[0]!""}</productid>
+   				<quantity>${order_item.quantity[0]!""}</quantity>
+   				<price>${order_item.price[0]!""}</price>
+   				<#list .vars["order"]["order-items"]  as order_items>
+   <itemList>
+   		<#list .vars["order_items"]["order-item"]  as order_item>
+   			<item>
+   				<id>${order_item.@id[0]!""}</id>
+   				<productid>${order_item.product[0]!""}</productid>
+   				<quantity>${order_item.quantity[0]!""}</quantity>
+   				<price>${order_item.price[0]!""}</price>
+	   		</item>
+   		</#list>
+   	</itemList>
+</#list>   
+	   		</item>
+   		</#list>
+   	</itemList>
+</#list>   
+</salesorder>
+
+]]>
+
+
+</ftl:template>
+</ftl:freemarker>
+<resource-config selector="#document">
+<resource>org.milyn.delivery.DomModelCreator</resource>
+</resource-config>
+
+ 
+</smooks-resource-list>
