@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.8.0.v20120606-0717.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xsd_2.8.0.v20120608-0554.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Misko/Downloads/google-gson-2.2.2-release (1)/google-gson-2.2.2/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

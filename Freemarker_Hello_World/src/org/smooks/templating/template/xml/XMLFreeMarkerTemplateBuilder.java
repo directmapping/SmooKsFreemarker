@@ -31,7 +31,6 @@ import org.smooks.templating.model.ModelBuilder;
 import org.smooks.templating.model.ModelBuilderException;
 import org.smooks.templating.model.ModelNodeResolver;
 import org.smooks.templating.model.ModelBuilder.ElementType;
-import org.smooks.templating.model.xml.XSDModelBuilder;
 import org.smooks.templating.template.*;
 import org.smooks.templating.template.exception.TemplateBuilderException;
 import org.smooks.templating.template.freemarker.FreeMarkerTemplateBuilder;
