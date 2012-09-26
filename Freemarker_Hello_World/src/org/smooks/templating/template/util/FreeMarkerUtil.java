@@ -121,6 +121,9 @@ public class FreeMarkerUtil {
 	}
 
 	public static String toPath(String srcPath, boolean nodeModelSource) {
+		
+		//TODO rewrite to get freemarker variables back.
+		
 		if(nodeModelSource) {
 			StringBuilder builder = new StringBuilder();
 			

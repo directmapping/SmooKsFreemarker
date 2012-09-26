@@ -49,6 +49,7 @@ public abstract class FreeMarkerTemplateBuilder extends TemplateBuilder {
 
 	@Override
 	public AddCollectionResult addCollectionMapping(String srcCollectionPath, Element modelCollectionPath, String collectionItemName) throws InvalidMappingException {
+		ModelBuilder.setCollectionVariable(modelCollectionPath, collectionItemName, srcCollectionPath);
 		return super.addCollectionMapping(FreeMarkerUtil.normalizePath(srcCollectionPath), modelCollectionPath, collectionItemName);
 	}
 	

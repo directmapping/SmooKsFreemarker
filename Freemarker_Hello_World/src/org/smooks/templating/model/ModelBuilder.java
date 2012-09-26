@@ -37,6 +37,12 @@ import javax.xml.parsers.ParserConfigurationException;
  * Abstract message model builder.
  * 
  * @author <a href="mailto:tom.fennelly@jboss.com">tom.fennelly@jboss.com</a>
+ * 
+ *   changes 
+ *   
+ *   25/09/2012 MS : added  setCollectionVariable , getCollectionName, getCollectionPath
+ *   26/09/2012 MS : move from org.w3c.dom to org.dom4j
+ *   
  */
 public abstract class ModelBuilder {
     
@@ -60,6 +66,10 @@ public abstract class ModelBuilder {
      */
     public abstract Document buildModel() throws ModelBuilderException;
 
+    
+    
+    public abstract void configureModel();
+    
     /**
      * Get the namespace prefix-to-URI mappings for this model.
      * @return The namespace prefix-to-URI mappings for this model.
@@ -68,7 +78,7 @@ public abstract class ModelBuilder {
 		return namespaces;
 	}
 
-
+    
 
 	/**
      * Mark a fragment as being hidden.
@@ -340,4 +350,27 @@ public abstract class ModelBuilder {
 		
 		return Boolean.parseBoolean(strict);
 	}
+	
+	
+	
+	 public static void setCollectionVariable(Element element, String collectionName, String collectionpath) {
+	        element.setAttributeNS(NAMESPACE, "smk:collection_name", collectionName); //$NON-NLS-1$
+	        element.setAttributeNS(NAMESPACE, "smk:collection_path", collectionpath); //$NON-NLS-1$
+	    }
+	 
+	    public static String getCollectionName(Element element) {
+	        String collectionName = element.getAttributeNS(NAMESPACE, "collection_name"); //$NON-NLS-1$
+
+	       
+	        return collectionName;
+	    }
+	    
+	    
+	    public static String getCollectionPath(Element element) {
+	        String collectionpath = element.getAttributeNS(NAMESPACE, "collection_path"); //$NON-NLS-1$
+
+	       
+	        return collectionpath;
+	    }
+	 
 }

@@ -1,6 +1,6 @@
-package org.smooks.processing.input;
+package org.smooks.templating.mapping.model.ztree;
 
-public class ZTree_JSON_Node {
+public class ZTreeModel {
 
 	
 	  private int id;
@@ -11,7 +11,7 @@ public class ZTree_JSON_Node {
 	  private boolean isFolder;
 
 	
-	  public ZTree_JSON_Node(int id, int pId, String name, String xpath) {
+	  public ZTreeModel(int id, int pId, String name, String xpath) {
 	    this.id = id;
 	    this.pId = pId;
 	    this.name = name;
@@ -21,7 +21,7 @@ public class ZTree_JSON_Node {
 	  }
 	  
 	  
-	  public ZTree_JSON_Node(int id, int pId, String name, String xpath, boolean open,  boolean isFolder) {
+	  public ZTreeModel(int id, int pId, String name, String xpath, boolean open,  boolean isFolder) {
 		    this.id = id;
 		    this.pId = pId;
 		    this.name = name;

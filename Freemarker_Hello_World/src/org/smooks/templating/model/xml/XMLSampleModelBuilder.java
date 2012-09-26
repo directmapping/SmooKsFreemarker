@@ -96,6 +96,48 @@ public class XMLSampleModelBuilder extends ModelBuilder {
 		configureModelElementCardinality(documentElement);
 		registerNamepsaces(documentElement);
     }
+    
+    public XMLSampleModelBuilder(URI xmlSampleURI, boolean configuration) throws IOException, ModelBuilderException {
+    	Assert.isNotNull(xmlSampleURI, "Null 'xmlSampleURI' arg in method call."); //$NON-NLS-1$
+    	
+    	File xmlSampleFile =  new File(xmlSampleURI.toFileString());
+    	
+    	if(!xmlSampleFile.exists()) {
+    		throw new IOException("XML Sample '" + xmlSampleFile.getAbsolutePath() + "' not found."); //$NON-NLS-1$ //$NON-NLS-2$    		
+    	} else if(!xmlSampleFile.isFile()) {
+    		throw new IOException("XML Sample '" + xmlSampleFile.getAbsolutePath() + "' is not a normal file.  Might be a directory etc."); //$NON-NLS-1$ //$NON-NLS-2$    		
+    	}
+    	
+    	try {
+			model = docBuilder.parse(xmlSampleFile);
+		} catch (SAXException e) {
+			throw new ModelBuilderException("Error parsing XML Sample file.", e); //$NON-NLS-1$ 
+		}
+		
+		Element documentElement = model.getDocumentElement();
+		
+        // The model has no metadata attached since it is based on only a sample, 
+		// so mark it as not being a strict model...
+        ModelBuilder.setStrictModel(model, false);
+		
+		trimNonModelNodes(documentElement);
+		
+		if(configuration)
+		{
+			configureModelElementTypes(documentElement);
+			configureModelElementCardinality(documentElement);
+			registerNamepsaces(documentElement);
+		}
+    }
+    
+    public void configureModel(){
+    	Element documentElement = model.getDocumentElement();
+		
+    	configureModelElementTypes(documentElement);
+		configureModelElementCardinality(documentElement);
+		registerNamepsaces(documentElement);
+    	
+    }
 
 	public static void trimNonModelNodes(Element element) {
 		NodeList children = element.getChildNodes();

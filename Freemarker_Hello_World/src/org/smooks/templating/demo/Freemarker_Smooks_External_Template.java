@@ -21,9 +21,11 @@ public class Freemarker_Smooks_External_Template {
 	 public static void main(String[] args) throws IOException, SAXException, SmooksException, InterruptedException
 	    {
 	
-	           Smooks smooks = new Smooks("smooks_config/smooks-config.xml");
+	          Smooks smooks = new Smooks("smooks_config/smooks-config_generic1.xml");
+		 	 // Smooks smooks = new Smooks("smooks_config/smooks-config_source_target.xml");
 	        try {
-	            smooks.filterSource(new StreamSource(new FileInputStream("input/input-message.xml")), new StreamResult(System.out));
+	        	 smooks.filterSource(new StreamSource(new FileInputStream("input/input-message.xml")), new StreamResult(System.out));
+			 // smooks.filterSource(new StreamSource(new FileInputStream("source/source.xml")), new StreamResult(System.out));
 		        } finally {
 	            smooks.close();
 	        }	        

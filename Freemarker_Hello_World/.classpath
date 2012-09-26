@@ -7,7 +7,7 @@
 	<classpathentry kind="src" path="smooks_config"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/freemarker.jar"/>
-	<classpathentry kind="lib" path="lib/milyn-smooks-all-1.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/milyn-smooks-all-1.5.1.jar" sourcepath="C:/Users/Misko/Downloads/smooks-smooks-7171369"/>
 	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/freemarker-2.3.15.jar"/>
@@ -28,6 +28,7 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.8.0.v20120606-0717.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.xsd_2.8.0.v20120608-0554.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Misko/Downloads/google-gson-2.2.2-release (1)/google-gson-2.2.2/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

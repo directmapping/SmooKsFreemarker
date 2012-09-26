@@ -9,22 +9,22 @@
    <![CDATA[<?xml vestion="1.0"encoding="UTF-8"?>
    <salesorder>
     <details>
-        <orderid>${.vars["order"]["@id"][0]!""}</orderid>
+        <orderid>${.vars["orders"]["@id"][0]!""}</orderid>
         <customer>
-            <id>${.vars["order"]["header/customer/@number"][0]!""}</id>
-            <name>${.vars["order"]["header/customer"][0]!""}</name>
+            <id>${.vars["orders"]["header/customer/@number"][0]!""}</id>
+            <name>${.vars["orders"]["header/customer"][0]!""}</name>
         </customer>
     </details>
     
-    <#list .vars["order"] as c>
+    <#list .vars["orders"] as c>
 - ${c?node_name}
 </#list>  
 
-<#list .vars["order"]?children as c>
+<#list .vars["orders"]?children as c>
 - ${c?node_type} <#if c?node_type = 'element'>${c?node_name}</#if>
 </#list> 
 
-<#list .vars["order"]["order-items"]  as order_items>
+<#list .vars["orders"]["order-items"]  as order_items>
    <itemList>
    		<#list .vars["order_items"]["order-item"]  as order_item>
    			<item>
@@ -38,7 +38,7 @@
 </#list>   
 
 
-<#list .vars["order"]["order-items"]  as order_items>
+<#list .vars["orders"]["order-items"]  as order_items>
    <itemList>
    		<#list .vars["order_items"]["order-item"]  as order_item>
    			<item>
@@ -46,7 +46,7 @@
    				<productid>${order_item.product[0]!""}</productid>
    				<quantity>${order_item.quantity[0]!""}</quantity>
    				<price>${order_item.price[0]!""}</price>
-   				<#list .vars["order"]["order-items"]  as order_items>
+   				<#list .vars["orders"]["order-items"]  as order_items>
    <itemList>
    		<#list .vars["order_items"]["order-item"]  as order_item>
    			<item>

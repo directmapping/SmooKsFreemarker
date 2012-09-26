@@ -136,8 +136,19 @@ public class XMLFreeMarkerTemplateBuilder extends FreeMarkerTemplateBuilder {
 
 				if(mapping instanceof CollectionMapping) {
 					collectionMapping = (CollectionMapping) mapping;
-					TemplateBuilder.writeIndent(indent, templateWriter);			
-					templateWriter.write("<#list " + FreeMarkerUtil.toPath(collectionMapping.getSrcPath(), isNodeModelSource()) + " as " + collectionMapping.getCollectionItemName() + ">\n"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					TemplateBuilder.writeIndent(indent, templateWriter);	
+					
+					//TODO rewrite to get freemarker variables back.
+					if(ModelBuilder.getCollectionPath(element)!= null)
+					{
+						templateWriter.write("<#list " + FreeMarkerUtil.toPath(ModelBuilder.getCollectionPath(element), isNodeModelSource()) + " as " + collectionMapping.getCollectionItemName() + ">\n"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						
+					}
+					else
+					{
+						templateWriter.write("<#list " + FreeMarkerUtil.toPath(collectionMapping.getSrcPath(), isNodeModelSource()) + " as " + collectionMapping.getCollectionItemName() + ">\n"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					}
+					//ModelBuilder.setCollectionVariable(element, collectionMapping.getCollectionItemName(), FreeMarkerUtil.toPath(collectionMapping.getSrcPath(), isNodeModelSource()));
 				}
 				
 				TemplateBuilder.writeIndent(indent, templateWriter);			
@@ -216,6 +227,8 @@ public class XMLFreeMarkerTemplateBuilder extends FreeMarkerTemplateBuilder {
 				templateWriter.write(">"); //$NON-NLS-1$
 				writeHistory.startClosed = true;
 				if(mapping != null) {
+					
+					//TODO variable collection override
 					templateWriter.write(FreeMarkerUtil.toFreeMarkerVariable((ValueMapping)mapping, isNodeModelSource()));
 				} else {
 					templateWriter.write(ModelBuilder.REQUIRED);

@@ -8,8 +8,11 @@
         <resource>org.milyn.delivery.DomModelCreator</resource>
     </resource-config>
   
-    <ftl:freemarker applyOnElement="order">
-        <ftl:template><!--<salesorder>
+ <ftl:freemarker applyOnElement="order">
+ <ftl:template>
+ 
+ 
+ <!--<salesorder>
     <details>
         <orderid>${order.@id}</orderid>
         <customer>
@@ -19,11 +22,8 @@
 
         </customer>
     </details>
-   
-   
-</salesorder>--></ftl:template>
-    </ftl:freemarker>
+ </salesorder>-->
 
-    
-
+</ftl:template>
+</ftl:freemarker>
 </smooks-resource-list>
